@@ -29,6 +29,7 @@ Se hace una comprobación previa sin ningun test con cobertura 0%.
 **Objetivo:** Verifica la aplicación del 10% de descuento a productos de electrónica cuando se compran menos de 5 unidades y el cliente no es VIP.
 
 ~~~
+@Test
 public void testDescuentoElectronicaClienteNoVip() {
         List<Producto> productos = Arrays.asList(
             new Producto("electronica", 100.0, 3) // 10% descuento
@@ -49,6 +50,7 @@ El primer test de cobertura del código abarca un 74,1%.
 **Objetivo:** Comprueba el descuento combinado para ropa (15% por cantidad + 5% por ser VIP), sumando un 20% de descuento.
 
 ~~~
+@Test
 public void testDescuentoRopaClienteVip() {
         List<Producto> productos = Arrays.asList(
             new Producto("ropa", 50.0, 3) // 15% + 5% = 20%
@@ -69,6 +71,7 @@ El segundo test de cobertura del código abarca un 83,5%.
 **Objetivo:** Asegura que el descuento total no supere el 30%, incluso si la suma de descuentos por cantidad y por ser VIP es mayor.
 
 ~~~
+@Test
  public void testLimiteDescuentoMaximo30() {
         List<Producto> productos = Arrays.asList(
             new Producto("electronica", 200.0, 6) // 20% + 5% = 25% (VIP)
@@ -81,3 +84,25 @@ El segundo test de cobertura del código abarca un 83,5%.
 El tercer test de cobertura del código abarca un 86,5%.
 
 ![Cobertura 3º test](/fotos/6%20-%20Cobertura%20con%20tercer%20test.png)
+
+## 3.4 - Test 4
+
+**Nombre:** testCategoriaInvalidaLanzaExcepcion
+
+**Objetivo:** Comprueba que se lanza una excepción si se escribe una categoría de producto no reconocida.
+
+~~~
+@Test
+ public void testCategoriaInvalidaLanzaExcepcion() {
+        List<Producto> productos = Arrays.asList(
+            new Producto("juguetes", 30.0, 2)
+        );
+        assertThrows(IllegalArgumentException.class, () -> {
+            CalculadoraDescuentosUtils.calcularTotalConDescuento(productos, false);
+        });
+    }
+~~~
+
+El cuarto test de cobertura del código abarca un 88%.
+
+![Cobertura 4º test](/fotos/7%20-%20Cobertura%20con%20cuarto%20test.png)
