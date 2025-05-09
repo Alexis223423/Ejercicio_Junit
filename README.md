@@ -1,6 +1,24 @@
-# Ejercicio_Junit
+# 1 - Introducción
 
-En este documento se van a detallar los pasos para llevar a cabo las pruebas con Junit sobre las clases del proyecto Java para confirmar que funcionan de manera correcta.
+En este documento se van a detallar los pasos para llevar a cabo las pruebas con **Junit** sobre las clases del proyecto Java para confirmar que funcionan de manera correcta.
+
+# 2 - Implementación de JUnit
+
+La ruta para implementar la libreria es la siguiente, tal y como se muestra en la imagen:
+
+>Java Build Path > Labraries > Add Library > JUnit
+
+![Implementación Junit al proyecto](/fotos/1%20-%20Implementar%20Junit%20al%20proyecto.png)
+
+Una vez que se ha creado la clase con los test, la ruta para hacer la cobertura de código es la siguiente:
+
+>Coverage As > JUnit Test
+
+![Comprobar cobertura del proyecto](/fotos/2%20-%20Comprobar%20cobertura%20del%20proyecto%20con%20Junit.png)
+
+Se hace una comprobación previa sin ningun test con cobertura 0%.
+
+![Cobertura inicial](/fotos/3%20-%20Cobertura%20al%20inicio%20de%20los%20test.png)
 
 ## **Test 1**
 
@@ -18,4 +36,6 @@ public void testDescuentoElectronicaClienteNoVip() {
     }
 ~~~
 
+El primer test de cobertura del código abarca un 74,1%
 
+![Cobertura 1º test](/fotos/4%20-%20Cobertura%20con%20primer%20test.png)
