@@ -46,7 +46,7 @@ El primer test de cobertura del código abarca un 74,1%.
 
 **Nombre:** testDescuentoRopaClienteVip
 
-**Objetivo:** Comprueba eñ descuento combinado para ropa (15% por cantidad + 5% por ser VIP), sumando un 20% de descuento.
+**Objetivo:** Comprueba el descuento combinado para ropa (15% por cantidad + 5% por ser VIP), sumando un 20% de descuento.
 
 ~~~
 public void testDescuentoRopaClienteVip() {
@@ -60,4 +60,24 @@ public void testDescuentoRopaClienteVip() {
 
 El segundo test de cobertura del código abarca un 83,5%.
 
-![Cobertura 1º test](/fotos/5%20-%20Cobertura%20con%20segundo%20test.png)
+![Cobertura 2º test](/fotos/5%20-%20Cobertura%20con%20segundo%20test.png)
+
+## 3.3 - Test 3
+
+**Nombre:** testLimiteDescuentoMaximo30
+
+**Objetivo:** Asegura que el descuento total no supere el 30%, incluso si la suma de descuentos por cantidad y por ser VIP es mayor.
+
+~~~
+ public void testLimiteDescuentoMaximo30() {
+        List<Producto> productos = Arrays.asList(
+            new Producto("electronica", 200.0, 6) // 20% + 5% = 25% (VIP)
+        );
+        double total = CalculadoraDescuentosUtils.calcularTotalConDescuento(productos, true);
+        assertEquals(900.0, total); // 200 * 6 * 0.75
+    }
+~~~
+
+El tercer test de cobertura del código abarca un 86,5%.
+
+![Cobertura 3º test](/fotos/6%20-%20Cobertura%20con%20tercer%20test.png)
