@@ -6,11 +6,11 @@ En este documento se van a detallar los pasos para llevar a cabo las pruebas con
 
 La ruta para implementar la libreria es la siguiente, tal y como se muestra en la imagen:
 
->Java Build Path > Labraries > Add Library > JUnit
+>Java Build Path > Libraries > Add Library > JUnit
 
 ![Implementación Junit al proyecto](/fotos/1%20-%20Implementar%20Junit%20al%20proyecto.png)
 
-Una vez que se ha creado la clase con los test, la ruta para hacer la cobertura de código es la siguiente:
+Una vez que se ha creado el archivo java para hacer los test, la ruta para hacer la cobertura de código es la siguiente:
 
 >Coverage As > JUnit Test
 
@@ -20,7 +20,9 @@ Se hace una comprobación previa sin ningun test con cobertura 0%.
 
 ![Cobertura inicial](/fotos/3%20-%20Cobertura%20al%20inicio%20de%20los%20test.png)
 
-## **Test 1**
+# 3 - Implementación de los test
+
+## 3.1 - Test 1
 
 **Nombre:** testDescuentoElectronicaClienteNoVip
 
@@ -36,6 +38,26 @@ public void testDescuentoElectronicaClienteNoVip() {
     }
 ~~~
 
-El primer test de cobertura del código abarca un 74,1%
+El primer test de cobertura del código abarca un 74,1%.
 
 ![Cobertura 1º test](/fotos/4%20-%20Cobertura%20con%20primer%20test.png)
+
+## 3.2 - Test 2
+
+**Nombre:** testDescuentoRopaClienteVip
+
+**Objetivo:** Comprueba eñ descuento combinado para ropa (15% por cantidad + 5% por ser VIP), sumando un 20% de descuento.
+
+~~~
+public void testDescuentoRopaClienteVip() {
+        List<Producto> productos = Arrays.asList(
+            new Producto("ropa", 50.0, 3) // 15% + 5% = 20%
+        );
+        double total = CalculadoraDescuentosUtils.calcularTotalConDescuento(productos, true);
+        assertEquals(120.0, total); // 50 * 3 * 0.80
+    }
+~~~
+
+El segundo test de cobertura del código abarca un 83,5%.
+
+![Cobertura 1º test](/fotos/5%20-%20Cobertura%20con%20segundo%20test.png)
