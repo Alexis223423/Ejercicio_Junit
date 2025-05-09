@@ -106,3 +106,24 @@ El tercer test de cobertura del código abarca un 86,5%.
 El cuarto test de cobertura del código abarca un 88%.
 
 ![Cobertura 4º test](/fotos/7%20-%20Cobertura%20con%20cuarto%20test.png)
+
+## 3.5 - Test 5
+
+**Nombre:** testDescuentoAlimentacionNoVip
+
+**Objetivo:** Se comprueba aplicar el descuento fijo del 5% para productos de alimentación cuando el cliente no es VIP.
+
+~~~
+@Test
+    public void testDescuentoAlimentacionNoVip() {
+        List<Producto> productos = Arrays.asList(
+            new Producto("alimentacion", 10.0, 4) // 5% descuento
+        );
+        double total = CalculadoraDescuentosUtils.calcularTotalConDescuento(productos, false);
+        assertEquals(38.0, total); // 10 * 4 * 0.95
+    }
+~~~
+
+El quinto test de cobertura del código abarca un 90%.
+
+![Cobertura 5º test](/fotos/8%20-%20Cobertura%20con%20quinto%20test.png)

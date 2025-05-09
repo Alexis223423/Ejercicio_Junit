@@ -47,6 +47,15 @@ public class CalculadoraDescuentosTest {
         });
     }
 
+    @Test
+    public void testDescuentoAlimentacionNoVip() {
+        List<Producto> productos = Arrays.asList(
+            new Producto("alimentacion", 10.0, 4) // 5% descuento
+        );
+        double total = CalculadoraDescuentosUtils.calcularTotalConDescuento(productos, false);
+        assertEquals(38.0, total); // 10 * 4 * 0.95
+    }
+
 
    
 }
