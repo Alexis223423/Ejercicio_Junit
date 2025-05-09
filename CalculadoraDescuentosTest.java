@@ -56,6 +56,16 @@ public class CalculadoraDescuentosTest {
         assertEquals(38.0, total); // 10 * 4 * 0.95
     }
 
+    @Test
+    public void testMultiplesProductosYClienteVip() {
+        List<Producto> productos = Arrays.asList(
+            new Producto("ropa", 60.0, 3),       // 15% + 5% = 20%
+            new Producto("hogar", 100.0, 2),     // 10% + 5% = 15%
+            new Producto("alimentacion", 5.0, 10) // 5% + 5% = 10%
+        );
+        double total = CalculadoraDescuentosUtils.calcularTotalConDescuento(productos, true);
+        assertEquals(359.0, total);
+    }
 
    
 }

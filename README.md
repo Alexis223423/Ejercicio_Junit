@@ -127,3 +127,30 @@ El cuarto test de cobertura del código abarca un 88%.
 El quinto test de cobertura del código abarca un 90%.
 
 ![Cobertura 5º test](/fotos/8%20-%20Cobertura%20con%20quinto%20test.png)
+
+## 3.6 - Test 6
+
+**Nombre:** testMultiplesProductosYClienteVip
+
+**Objetivo:** Se comprueba un cálculo total con distintos productos de varias categorías, cantidades, descuentos individuales y cliente VIP, para una integración y acumulación correcta.
+
+~~~
+@Test
+    public void testMultiplesProductosYClienteVip() {
+        List<Producto> productos = Arrays.asList(
+            new Producto("ropa", 60.0, 3),       // 15% + 5% = 20%
+            new Producto("hogar", 100.0, 2),     // 10% + 5% = 15%
+            new Producto("alimentacion", 5.0, 10) // 5% + 5% = 10%
+        );
+        double total = CalculadoraDescuentosUtils.calcularTotalConDescuento(productos, true);
+        assertEquals(359.0, total);
+    }
+~~~
+
+El sexto test de cobertura del código abarca un 93,7%.
+
+![Cobertura 6º test](/fotos/9%20-%20Cobertura%20con%20sexto%20test.png)
+
+## 4 - Cobertura de código optima
+
+El ejercicio pedía una cobertura de código minima del 90%, de este modo habiendo llegado al 93,7%, concluyen las pruebas test para comprobar el funcionamiento del código.
